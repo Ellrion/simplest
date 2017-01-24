@@ -1,1 +1,2 @@
 - [ ] Add Database service;
+- [ ] Add Console commands;
