@@ -8,6 +8,8 @@ route('GET', '/', function () {
     return view('welcome', ['name' => config('app.name')]);
 });
 
+route('GET', 'test', 'get_greetings');
+
 route_error(404, function () {
     http_response_code(404);
     return view('errors/404');
