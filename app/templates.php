@@ -23,7 +23,7 @@ function view($template, $data = [])
  * @param string $suffix
  * @return string
  */
-function render($string, $data, $prefix = '{', $suffix = '}')
+function render($string, $data, $prefix = ':', $suffix = '')
 {
     $params = [];
     array_walk($data, function ($val, $key) use (&$params, $prefix, $suffix) {

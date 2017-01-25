@@ -11,5 +11,5 @@ $var = '<script>alert(1)</script>';
 $protected = '&lt;script&gt;alert(1)&lt;/script&gt;';
 assert('e($var) === $protected', 'Test xss protection');
 
-$template = '<p>{var}</p>';
+$template = '<p>:var</p>';
 assert('render($template, ["var" => "foo"]) === "<p>foo</p>"', 'Test render string template');
