@@ -4,6 +4,7 @@
 - Configurations;
 - Template engine;
 - Tests;
+- Service container;
 - ...
 
 **This project for fun**
