@@ -3,6 +3,7 @@
 - Routing;
 - Configurations;
 - Template engine;
+- Tests;
 - ...
 
 **This project for fun**

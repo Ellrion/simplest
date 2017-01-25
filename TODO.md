@@ -1,3 +1,3 @@
 - [ ] Add Database service;
 - [ ] Add Console commands;
-- [ ] Add Tests
+- [x] Add Tests;
