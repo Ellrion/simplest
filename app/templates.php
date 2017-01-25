@@ -15,3 +15,8 @@ function view($template, $data = [])
 {
     echo render($template, $data);
 }
+
+function e($value)
+{
+    return htmlspecialchars($value, ENT_QUOTES, 'UTF-8', false);
+}
