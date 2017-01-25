@@ -2,7 +2,12 @@
 
 const TEMPLATES_PATH = __DIR__ . '/../views';
 
-function render($template, $data = [])
+/**
+ * @param string $template
+ * @param array $data
+ * @return string
+ */
+function view($template, $data = [])
 {
     extract($data, EXTR_SKIP);
     ob_start();
@@ -11,12 +16,29 @@ function render($template, $data = [])
     return ob_get_clean();
 }
 
-function view($template, $data = [])
+/**
+ * @param string $string
+ * @param array $data
+ * @param string $prefix
+ * @param string $suffix
+ * @return string
+ */
+function render($string, $data, $prefix = '{', $suffix = '}')
 {
-    echo render($template, $data);
+    $params = [];
+    array_walk($data, function ($val, $key) use (&$params, $prefix, $suffix) {
+        $params["{$prefix}{$key}{$suffix}"] = $val;
+    });
+
+    return strtr($string, $params);
 }
 
+
+/**
+ * @param mixed $value
+ * @return string
+ */
 function e($value)
 {
-    return htmlspecialchars($value, ENT_QUOTES, 'UTF-8', false);
+    return htmlspecialchars((string) $value, ENT_QUOTES, 'UTF-8', false);
 }

@@ -2,6 +2,10 @@
 
 const CONFIG_PATH = __DIR__ . '/../config';
 
+/**
+ * @param $config
+ * @return mixed|null
+ */
 function config($config)
 {
     $path = explode('.', $config);

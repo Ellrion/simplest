@@ -2,6 +2,10 @@
 
 const ROUTES_ACTIONS_PATH = __DIR__ . '/routes';
 
+/**
+ * @param null|array $routes
+ * @return array
+ */
 function routes($routes = null)
 {
     static $routesList = [];
@@ -13,6 +17,11 @@ function routes($routes = null)
     return $routesList;
 }
 
+/**
+ * @param string $method
+ * @param string $uri
+ * @param callable|string $action
+ */
 function route($method, $uri, $action)
 {
     $routes = routes();
@@ -25,6 +34,11 @@ function route($method, $uri, $action)
     routes($routes);
 }
 
+/**
+ * @param integer $code
+ * @param callable|null $action
+ * @return callable
+ */
 function route_error($code, $action = null)
 {
     static $errors = [];
@@ -41,9 +55,14 @@ function route_error($code, $action = null)
         };
 }
 
+/**
+ * @param null|string $route
+ * @param null|string $method
+ * @return callable
+ */
 function route_resolve($route = null, $method = null)
 {
-    $route = $route ?: trim($_SERVER['REQUEST_URI'], '/');
+    $route = trim($route ?: $_SERVER['REQUEST_URI'], '/');
     $method = $method ?: $_SERVER['REQUEST_METHOD'];
     $routes = routes();
 
@@ -60,4 +79,3 @@ function route_resolve($route = null, $method = null)
         ? include(ROUTES_ACTIONS_PATH . "/$action.php")
         : $action;
 }
-
