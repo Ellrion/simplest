@@ -5,4 +5,4 @@
 
 ## issues
 - [ ] Possible migrate to php 7
-- [ ] Possible mare routes simplest (set from array not a function and delete errors resolving);
+- [ ] Possible more routes simplest (set from array not a function and delete errors resolving);
